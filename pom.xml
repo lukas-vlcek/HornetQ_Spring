@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <description>Simple HornetQ/JMS Spring integration example.</description>
+
+    <groupId>hornetq_spring</groupId>
+    <artifactId>hornetq_spring</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <compileSource>1.6</compileSource>
+        <org.hornetq.version>2.2.6.Final</org.hornetq.version>
+        <org.jboss.netty.version>3.2.3.Final</org.jboss.netty.version>
+        <org.springframework.version>3.0.5.RELEASE</org.springframework.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.6.1</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.1</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>${org.jboss.netty.version}</version>
+        </dependency>
+        <!-- for embedded server -->
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-core</artifactId>
+            <version>${org.hornetq.version}</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-bootstrap</artifactId>
+            <version>${org.hornetq.version}</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-spring-integration</artifactId>
+            <version>${org.hornetq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-jms</artifactId>
+            <version>${org.hornetq.version}</version>
+        </dependency>
+        <!-- needed for spring integration -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <!-- for client -->
+
+        <dependency>
+            <groupId>org.jboss.javaee</groupId>
+            <artifactId>jboss-jms-api</artifactId>
+            <version>1.1.0.GA</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-core-client</artifactId>
+            <version>${org.hornetq.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-jms-client</artifactId>
+            <version>${org.hornetq.version}</version>
+        </dependency>
+        -->
+
+        <dependency>
+          <groupId>org.testng</groupId>
+          <artifactId>testng</artifactId>
+          <version>6.2</version>
+          <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>hornetq_spring</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>${compileSource}</source>
+                    <target>${compileSource}</target>
+                    <encoding>iso8859-1</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

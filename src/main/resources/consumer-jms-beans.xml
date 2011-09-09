@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="connectionFactory" class="org.hornetq.integration.spring.ConnectionFactoryBean"/>
+
+    <bean id="consumerQueue" class="org.hornetq.api.jms.HornetQJMSClient" factory-method="createQueue">
+        <constructor-arg value="exampleQueue"/>
+    </bean>
+
+    <bean id="consumerTopic" class="org.hornetq.api.jms.HornetQJMSClient" factory-method="createTopic">
+        <constructor-arg value="exampleTopic"/>
+    </bean>
+
+    <bean id="consumerTopicListener" class="org.hornetq.integration.spring.ExampleListener"/>
+    <bean id="consumerQueueListener" class="org.hornetq.integration.spring.ExampleListener"/>
+
+    <bean id="topicListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destination" ref="consumerTopic"/>
+        <property name="messageListener" ref="consumerTopicListener"/>
+    </bean>
+
+    <bean id="queueListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="destination" ref="consumerQueue"/>
+        <property name="messageListener" ref="consumerQueueListener"/>
+    </bean>
+
+</beans>
