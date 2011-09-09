@@ -1,0 +1,3 @@
+h1. HornetQ/JMS Spring Integration Example
+
+A simple integration example of HornetQ/JMS and Spring.
